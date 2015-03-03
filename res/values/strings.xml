@@ -14,5 +14,6 @@
     <string name="title_activity_search_result">SearchResultActivity</string>
     <string name="action_filter">Filter</string>
     <string name="label_hair">Hair</string>
+    <string name="title_activity_venue">VenueActivity</string>
 
 </resources>

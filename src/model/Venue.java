@@ -6,18 +6,20 @@ public class Venue {
 	private String venueName, thumbnailUrl;
 	private String reviewCount;
 	private String rating;
+	private int venueId;
 	private ArrayList<String> genre;
 
 	public Venue() {
 	}
 
 	public Venue(String name,  String reviewCount, String rating,
-			ArrayList<String> genre) {
+			ArrayList<String> genre, int venueId) {
 		this.venueName = name;
 //		this.thumbnailUrl = thumbnailUrl;
 		this.reviewCount = reviewCount;
 		this.rating = rating;
 		this.genre = genre;
+		this.venueId = venueId;
 	}
 
 	public String getVenueName() {
@@ -26,6 +28,14 @@ public class Venue {
 
 	public void setVenueName(String name) {
 		this.venueName = name;
+	}
+	
+	public int getVenueID(){
+		return venueId;
+	}
+	
+	public void setVenueID(int vId){
+		this.venueId = vId;
 	}
 
 //	public String getThumbnailUrl() {

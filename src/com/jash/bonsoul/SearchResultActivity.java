@@ -3,18 +3,6 @@ package com.jash.bonsoul;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import adapter.CustomListAdapter;
-import android.app.Activity;
-import android.app.ProgressDialog;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import model.Venue;
 
@@ -22,25 +10,26 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import adapter.CustomListAdapter;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import app.AppController;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.DefaultRetryPolicy;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
-import com.android.volley.Request.Method;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
 
 public class SearchResultActivity extends Activity {
 
@@ -74,6 +63,23 @@ public class SearchResultActivity extends Activity {
 				new ColorDrawable(Color.parseColor("#1b1b1b")));
 
 		LoadAllProduct();
+		
+		listView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				Venue venue = (Venue) parent.getItemAtPosition(position);
+				Intent i = new Intent(SearchResultActivity.this, VenueActivity.class);
+				String vId = String.valueOf(venue.getVenueID());
+				i.putExtra("venueId",vId);
+				Log.d(TAG, vId);
+				startActivity(i);
+				//Toast.makeText(SearchResultActivity.this, venue.getVenueID() + " " + venue.getVenueName() , Toast.LENGTH_LONG).show();
+				
+			}
+			
+		});
 	}
 
 	@Override
@@ -118,6 +124,7 @@ public class SearchResultActivity extends Activity {
 			 
 			                                JSONObject obj = response.getJSONObject(i);
 			                                Venue venue = new Venue();
+			                                venue.setVenueID(Integer.parseInt(obj.getString("venueid")));
 			                                venue.setVenueName(obj.getString("venuename"));			                                
 			                                venue.setRating(obj.getString("venuerating"));
 			                                venue.setReviewCount(obj.getString("reviewcount"));		 

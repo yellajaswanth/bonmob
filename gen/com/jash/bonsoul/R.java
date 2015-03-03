@@ -57,55 +57,68 @@ public final class R {
         public static final int logo=0x7f020009;
         public static final int massage=0x7f02000a;
         public static final int nails=0x7f02000b;
-        public static final int spa=0x7f02000c;
+        public static final int sample_spa=0x7f02000c;
+        public static final int spa=0x7f02000d;
     }
     public static final class id {
-        public static final int action_example=0x7f0a001f;
-        public static final int action_settings=0x7f0a001e;
+        public static final int action_example=0x7f0a0027;
+        public static final int action_settings=0x7f0a0026;
         public static final int container=0x7f0a0001;
         public static final int drawer_layout=0x7f0a0000;
-        public static final int genre=0x7f0a001c;
-        public static final int imageView1=0x7f0a0007;
-        public static final int imageView2=0x7f0a000a;
-        public static final int imageView3=0x7f0a000d;
-        public static final int imageView4=0x7f0a0011;
-        public static final int imageView5=0x7f0a0014;
-        public static final int imageView6=0x7f0a0017;
-        public static final int innerLayout1=0x7f0a0006;
-        public static final int innerLayout2=0x7f0a0009;
-        public static final int innerLayout3=0x7f0a000c;
-        public static final int innerLayout4=0x7f0a0010;
-        public static final int innerLayout5=0x7f0a0013;
-        public static final int innerLayout6=0x7f0a0016;
-        public static final int linearLayout1=0x7f0a0005;
-        public static final int linearLayout2=0x7f0a000f;
+        public static final int genre=0x7f0a0024;
+        public static final int imageView1=0x7f0a0005;
+        public static final int imageView2=0x7f0a000b;
+        public static final int imageView3=0x7f0a000c;
+        public static final int imageView4=0x7f0a000d;
+        public static final int imageView5=0x7f0a000e;
+        public static final int imageView6=0x7f0a000f;
+        public static final int innerLayout1=0x7f0a0012;
+        public static final int innerLayout2=0x7f0a0014;
+        public static final int innerLayout3=0x7f0a0016;
+        public static final int innerLayout4=0x7f0a0019;
+        public static final int innerLayout5=0x7f0a001b;
+        public static final int innerLayout6=0x7f0a001d;
+        public static final int lblListHeader=0x7f0a001f;
+        public static final int lblListItem=0x7f0a0020;
+        public static final int linearLayout1=0x7f0a0011;
+        public static final int linearLayout2=0x7f0a0018;
         public static final int list=0x7f0a0003;
+        public static final int lvExp=0x7f0a0010;
         public static final int navigation_drawer=0x7f0a0002;
-        public static final int rating=0x7f0a001b;
-        public static final int releaseYear=0x7f0a001d;
+        public static final int rating=0x7f0a0023;
+        public static final int releaseYear=0x7f0a0025;
         public static final int services_list=0x7f0a0004;
-        public static final int textView1=0x7f0a0008;
-        public static final int textView2=0x7f0a000b;
-        public static final int textView3=0x7f0a000e;
-        public static final int textView4=0x7f0a0012;
-        public static final int textView5=0x7f0a0015;
-        public static final int textView6=0x7f0a0018;
-        public static final int thumbnail=0x7f0a001a;
-        public static final int title=0x7f0a0019;
+        public static final int textView1=0x7f0a0013;
+        public static final int textView2=0x7f0a0015;
+        public static final int textView3=0x7f0a0017;
+        public static final int textView4=0x7f0a001a;
+        public static final int textView5=0x7f0a001c;
+        public static final int textView6=0x7f0a001e;
+        public static final int thumbnail=0x7f0a0022;
+        public static final int title=0x7f0a0021;
+        public static final int venueGallery=0x7f0a000a;
+        public static final int venueReviewCount=0x7f0a0009;
+        public static final int venueaddress=0x7f0a0007;
+        public static final int venuename=0x7f0a0006;
+        public static final int venuerating=0x7f0a0008;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int activity_search_result=0x7f030001;
         public static final int activity_services=0x7f030002;
-        public static final int fragment_main=0x7f030003;
-        public static final int fragment_navigation_drawer=0x7f030004;
-        public static final int list_row=0x7f030005;
+        public static final int activity_venue=0x7f030003;
+        public static final int fragment_main=0x7f030004;
+        public static final int fragment_navigation_drawer=0x7f030005;
+        public static final int list_group=0x7f030006;
+        public static final int list_item=0x7f030007;
+        public static final int list_row=0x7f030008;
     }
     public static final class menu {
         public static final int global=0x7f090000;
         public static final int main=0x7f090001;
         public static final int search_result=0x7f090002;
         public static final int services=0x7f090003;
+        public static final int venue=0x7f090004;
     }
     public static final class string {
         public static final int action_example=0x7f070006;
@@ -118,6 +131,7 @@ public final class R {
         public static final int navigation_drawer_open=0x7f070004;
         public static final int title_activity_search_result=0x7f07000a;
         public static final int title_activity_services=0x7f070008;
+        public static final int title_activity_venue=0x7f07000d;
         public static final int title_section1=0x7f070001;
         public static final int title_section2=0x7f070003;
         public static final int title_section3=0x7f070002;
