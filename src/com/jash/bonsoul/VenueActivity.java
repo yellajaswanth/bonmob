@@ -32,6 +32,8 @@ public class VenueActivity extends Activity {
 	List<String> listDataHeader;
 	HashMap<String, List<String>> listDataChild;
 
+	private TextView menuItemTv1, menuItemTv2;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -51,7 +53,8 @@ public class VenueActivity extends Activity {
 
 		// get the listview
 		expListView = (ExpandableListView) findViewById(R.id.lvExp);
-
+		menuItemTv1 = (TextView) findViewById(R.id.lblListItem);
+		menuItemTv2 = (TextView) findViewById(R.id.cost);
 		// preparing list data
 		prepareListData();
 
@@ -119,7 +122,11 @@ public class VenueActivity extends Activity {
 				// listDataHeader.get(groupPosition)).get(
 				// childPosition), Toast.LENGTH_SHORT)
 				// .show();
+				Intent i = new Intent(VenueActivity.this,
+						BookServiceActivity.class);
+				startActivity(i);
 				return false;
+
 			}
 		});
 

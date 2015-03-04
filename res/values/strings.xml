@@ -15,5 +15,6 @@
     <string name="action_filter">Filter</string>
     <string name="label_hair">Hair</string>
     <string name="title_activity_venue">VenueActivity</string>
+    <string name="title_activity_book_service">BookServiceActivity</string>
 
 </resources>

@@ -18,7 +18,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" android:screenOrientation="portrait">
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,7 +29,8 @@
         <activity
             android:name=".ServicesActivity"
             android:label="@string/title_activity_services"
-            android:parentActivityName=".MainActivity" android:screenOrientation="portrait">
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jash.bonsoul.MainActivity" />
@@ -36,19 +38,29 @@
         <activity
             android:name=".SearchResultActivity"
             android:label="@string/title_activity_search_result"
-            android:parentActivityName=".ServicesActivity" android:screenOrientation="portrait">
+            android:parentActivityName=".ServicesActivity"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jash.bonsoul.ServicesActivity" />
         </activity>
         <activity
             android:name=".VenueActivity"
-            android:label="@string/title_activity_venue" 
-            android:parentActivityName=".SearchResultActivity" 
-            android:screenOrientation="portrait">
+            android:label="@string/title_activity_venue"
+            android:parentActivityName=".SearchResultActivity"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jash.bonsoul.SearchResultActivity" />
+        </activity>
+        <activity
+            android:name=".BookServiceActivity"
+            android:label="@string/title_activity_book_service"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".VenueActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jash.bonsoul.VenueActivity" />
         </activity>
     </application>
 

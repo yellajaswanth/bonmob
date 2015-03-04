@@ -8,5 +8,9 @@
     <color name="list_row_end_color">#ffffff</color>
     <color name="list_row_hover_start_color">#ebeef0</color>
     <color name="list_row_hover_end_color">#ebeef0</color>
-
+    <color name="bg_green">#2ecc71</color>
+	<color name="bg_white">#ffffff</color>
+	<color name="turquoise">#6BC1A8</color>
+	<color name="pinkred">#eb0e45</color>
+	<color name="navyblue">#13182e</color>
 </resources>
