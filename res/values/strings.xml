@@ -9,12 +9,17 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_services">ServicesActivity</string>
+    <string name="title_activity_services">Services</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_search_result">SearchResultActivity</string>
+    <string name="title_activity_search_result">Search Result</string>
     <string name="action_filter">Filter</string>
     <string name="label_hair">Hair</string>
-    <string name="title_activity_venue">VenueActivity</string>
-    <string name="title_activity_book_service">BookServiceActivity</string>
+    <string name="title_activity_venue">Venue</string>
+    <string name="title_activity_book_service">Book Appointment</string>
+    <string name="massage">Massage</string>
+    <string name="face">Face</string>
+    <string name="nails">Nails</string>
+    <string name="spa">Spa</string>
+    <string name="fitness">Fitness</string>
 
 </resources>

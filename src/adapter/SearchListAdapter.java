@@ -18,13 +18,13 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
 import com.jash.bonsoul.R;
 
-public class CustomListAdapter extends BaseAdapter {
+public class SearchListAdapter extends BaseAdapter {
 	private Activity activity;
 	private LayoutInflater inflater;
 	private List<Venue> movieItems;
 	ImageLoader imageLoader = AppController.getInstance().getImageLoader();
 
-	public CustomListAdapter(Activity activity, List<Venue> movieItems) {
+	public SearchListAdapter(Activity activity, List<Venue> movieItems) {
 		this.activity = activity;
 		this.movieItems = movieItems;
 	}

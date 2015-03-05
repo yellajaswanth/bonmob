@@ -10,7 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import adapter.CustomListAdapter;
+import adapter.SearchListAdapter;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -25,6 +25,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import app.AppController;
+import app.BonsoulObj;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -42,7 +43,7 @@ public class SearchResultActivity extends Activity {
 	private ProgressDialog pDialog;
 	private List<Venue> movieList = new ArrayList<Venue>();
 	private ListView listView;
-	private CustomListAdapter adapter;
+	private SearchListAdapter adapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +52,7 @@ public class SearchResultActivity extends Activity {
 		this.overridePendingTransition(R.anim.slide_in_left,
 				R.anim.slide_out_left);
 		listView = (ListView) findViewById(R.id.list);
-		adapter = new CustomListAdapter(SearchResultActivity.this, movieList);
+		adapter = new SearchListAdapter(SearchResultActivity.this, movieList);
 		listView.setAdapter(adapter);
 
 		pDialog = new ProgressDialog(this);
@@ -74,8 +75,7 @@ public class SearchResultActivity extends Activity {
 				Intent i = new Intent(SearchResultActivity.this,
 						VenueActivity.class);
 				String vId = String.valueOf(venue.getVenueID());
-				i.putExtra("venueId", vId);
-				Log.d(TAG, vId);
+				BonsoulObj.getInstance().setVenueID(vId);
 				startActivity(i);
 				// Toast.makeText(SearchResultActivity.this, venue.getVenueID()
 				// + " " + venue.getVenueName() , Toast.LENGTH_LONG).show();
@@ -116,6 +116,7 @@ public class SearchResultActivity extends Activity {
 				new Response.Listener<JSONArray>() {
 					@Override
 					public void onResponse(JSONArray response) {
+
 						try {
 							VolleyLog.v("Response:%n %s", response.toString(4));
 							hidePDialog();

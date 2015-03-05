@@ -4,8 +4,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import adapter.ExpandableListAdapter;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,7 +26,19 @@ import android.widget.ExpandableListView.OnGroupCollapseListener;
 import android.widget.ExpandableListView.OnGroupExpandListener;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
+import app.AppController;
+import app.BonsoulObj;
+
+import com.android.volley.Request.Method;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.NetworkImageView;
 
 public class VenueActivity extends Activity {
 
@@ -31,8 +48,18 @@ public class VenueActivity extends Activity {
 	ExpandableListView expListView;
 	List<String> listDataHeader;
 	HashMap<String, List<String>> listDataChild;
-
+	private ProgressDialog pDialog;
 	private TextView menuItemTv1, menuItemTv2;
+
+	private ScrollView venueScrollview;
+
+	ImageLoader imageLoader = AppController.getInstance().getImageLoader();
+
+	private String finalURL = "";
+
+	private TextView venuename, venueopen, venueaddress, venueReviewCount;
+
+	private static final String url = "http://bonsoul.com/get_venue_details.php?venueid=";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,16 +67,29 @@ public class VenueActivity extends Activity {
 		setContentView(R.layout.activity_venue);
 		this.overridePendingTransition(R.anim.slide_in_left,
 				R.anim.slide_out_left);
+
+		venuename = (TextView) findViewById(R.id.venuename);
+		venueopen = (TextView) findViewById(R.id.venueopen);
+		venueaddress = (TextView) findViewById(R.id.venueaddress);
+		venueReviewCount = (TextView) findViewById(R.id.venueReviewCount);
+		venueScrollview = (ScrollView) findViewById(R.id.venueScrollview);
+		venueScrollview.scrollTo(0, 0);
+
+		tv1 = (TextView) findViewById(R.id.venuename);
+
+		finalURL = url + BonsoulObj.getInstance().getVenueID();
+		LoadAllProduct();
+
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
 
-		Intent venueId = getIntent();
-
-		tv1 = (TextView) findViewById(R.id.venuename);
-		String vid = venueId.getStringExtra("venueId");
+		pDialog = new ProgressDialog(this);
+		// Showing progress dialog before making http request
+		pDialog.setMessage("Loading...");
+		pDialog.show();
 
 		// get the listview
 		expListView = (ExpandableListView) findViewById(R.id.lvExp);
@@ -124,6 +164,7 @@ public class VenueActivity extends Activity {
 				// .show();
 				Intent i = new Intent(VenueActivity.this,
 						BookServiceActivity.class);
+
 				startActivity(i);
 				return false;
 
@@ -257,6 +298,114 @@ public class VenueActivity extends Activity {
 		listView.setLayoutParams(params);
 		listView.requestLayout();
 
+	}
+
+	public void LoadAllProduct() {
+
+		// Adding request to request queue
+		Log.d(TAG, finalURL);
+		JsonObjectRequest venueReq = new JsonObjectRequest(Method.GET,
+				finalURL, null, new Response.Listener<JSONObject>() {
+					@Override
+					public void onResponse(JSONObject response) {
+						try {
+
+							if (imageLoader == null)
+								imageLoader = AppController.getInstance()
+										.getImageLoader();
+							NetworkImageView coverImg = (NetworkImageView) findViewById(R.id.venueMainImage);
+							NetworkImageView thumb1 = (NetworkImageView) findViewById(R.id.thumb1);
+							NetworkImageView thumb2 = (NetworkImageView) findViewById(R.id.thumb2);
+							NetworkImageView thumb3 = (NetworkImageView) findViewById(R.id.thumb3);
+							NetworkImageView thumb4 = (NetworkImageView) findViewById(R.id.thumb4);
+							// Parsing json object response
+							// response will be a json object
+							JSONArray venueJSONArray = response
+									.getJSONArray("venueInfo");
+							JSONArray reviewJSONArray = response
+									.getJSONArray("reviewInfo");
+							JSONArray venueJSON = venueJSONArray
+									.getJSONArray(0);
+							JSONArray reviewJSON = reviewJSONArray
+									.getJSONArray(0);
+
+							for (int i = 0; i < venueJSON.length(); i++) {
+
+								try {
+									JSONObject obj = venueJSON.getJSONObject(i);
+									venuename.setText(obj.getString("name"));
+									Log.d(TAG, obj.getString("name"));
+									venueaddress.setText(obj
+											.getString("address"));
+									Log.d(TAG, obj.getString("address"));
+									venueReviewCount.setText(String
+											.valueOf(reviewJSON.length())
+											+ " reviews");
+
+									JSONArray photosArray = obj
+											.getJSONArray("photos");
+									for (int j = 0; j < photosArray.length(); j++) {
+										JSONObject imgObj = photosArray
+												.getJSONObject(j);
+										if (j == 0) {
+											coverImg.setImageUrl(
+													"http://d2rmoau0tbh3pz.cloudfront.net/"
+															+ imgObj.get("original"),
+													imageLoader);
+										} else if (j == 1) {
+											thumb1.setImageUrl(
+													"http://d2rmoau0tbh3pz.cloudfront.net/"
+															+ imgObj.get("original"),
+													imageLoader);
+										} else if (j == 2) {
+											thumb2.setImageUrl(
+													"http://d2rmoau0tbh3pz.cloudfront.net/"
+															+ imgObj.get("original"),
+													imageLoader);
+										} else if (j == 3) {
+											thumb3.setImageUrl(
+													"http://d2rmoau0tbh3pz.cloudfront.net/"
+															+ imgObj.get("original"),
+													imageLoader);
+										} else if (j == 4) {
+											thumb4.setImageUrl(
+													"http://d2rmoau0tbh3pz.cloudfront.net/"
+															+ imgObj.get("original"),
+													imageLoader);
+										}
+									}
+
+								} catch (Exception ex) {
+								}
+
+							}
+
+						} catch (JSONException e) {
+							e.printStackTrace();
+							Log.d(TAG, e.toString());
+						}
+						hidePDialog();
+					}
+				}, new Response.ErrorListener() {
+
+					@Override
+					public void onErrorResponse(VolleyError error) {
+						VolleyLog.d(TAG, "Error: " + error.getMessage());
+						Toast.makeText(getApplicationContext(),
+								error.getMessage(), Toast.LENGTH_SHORT).show();
+						// hide the progress dialog
+						hidePDialog();
+					}
+				});
+		AppController.getInstance().addToRequestQueue(venueReq);
+
+	}
+
+	private void hidePDialog() {
+		if (pDialog != null) {
+			pDialog.dismiss();
+			pDialog = null;
+		}
 	}
 
 }
