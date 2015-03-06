@@ -8,18 +8,20 @@ public class Venue {
 	private String rating;
 	private int venueId;
 	private ArrayList<String> genre;
+	private String photo;
 
 	public Venue() {
 	}
 
-	public Venue(String name,  String reviewCount, String rating,
-			ArrayList<String> genre, int venueId) {
+	public Venue(String name, String reviewCount, String rating,
+			ArrayList<String> genre, int venueId, String photo) {
 		this.venueName = name;
-//		this.thumbnailUrl = thumbnailUrl;
+		// this.thumbnailUrl = thumbnailUrl;
 		this.reviewCount = reviewCount;
 		this.rating = rating;
 		this.genre = genre;
 		this.venueId = venueId;
+		this.photo = photo;
 	}
 
 	public String getVenueName() {
@@ -29,22 +31,22 @@ public class Venue {
 	public void setVenueName(String name) {
 		this.venueName = name;
 	}
-	
-	public int getVenueID(){
+
+	public int getVenueID() {
 		return venueId;
 	}
-	
-	public void setVenueID(int vId){
+
+	public void setVenueID(int vId) {
 		this.venueId = vId;
 	}
 
-//	public String getThumbnailUrl() {
-//		return thumbnailUrl;
-//	}
-//
-//	public void setThumbnailUrl(String thumbnailUrl) {
-//		this.thumbnailUrl = thumbnailUrl;
-//	}
+	// public String getThumbnailUrl() {
+	// return thumbnailUrl;
+	// }
+	//
+	// public void setThumbnailUrl(String thumbnailUrl) {
+	// this.thumbnailUrl = thumbnailUrl;
+	// }
 
 	public String getReviewCount() {
 		return reviewCount;
@@ -68,6 +70,14 @@ public class Venue {
 
 	public void setGenre(ArrayList<String> genre) {
 		this.genre = genre;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photoURL) {
+		this.photo = photoURL;
 	}
 
 }

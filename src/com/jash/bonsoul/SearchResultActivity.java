@@ -30,7 +30,9 @@ import app.BonsoulObj;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.NetworkImageView;
 
 public class SearchResultActivity extends Activity {
 
@@ -44,6 +46,8 @@ public class SearchResultActivity extends Activity {
 	private List<Venue> movieList = new ArrayList<Venue>();
 	private ListView listView;
 	private SearchListAdapter adapter;
+
+	ImageLoader imageLoader = AppController.getInstance().getImageLoader();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -117,6 +121,11 @@ public class SearchResultActivity extends Activity {
 					@Override
 					public void onResponse(JSONArray response) {
 
+						if (imageLoader == null)
+							imageLoader = AppController.getInstance()
+									.getImageLoader();
+						NetworkImageView searchImg = (NetworkImageView) findViewById(R.id.venueMainImage);
+
 						try {
 							VolleyLog.v("Response:%n %s", response.toString(4));
 							hidePDialog();
@@ -135,6 +144,25 @@ public class SearchResultActivity extends Activity {
 											.getString("venuerating"));
 									venue.setReviewCount(obj
 											.getString("reviewcount"));
+
+									// String photos = obj.getString("photos");
+									// JSONArray photosArray = new JSONArray(
+									// photos);
+									// for (int j = 0; j < photos.length(); j++)
+									// {
+									// JSONObject imgObj = photosArray
+									// .getJSONArray(0);
+									// if (j == 0)
+									// Log.d(TAG,
+									// String.valueOf(photosArray
+									// .get(0)));
+									//
+									// }
+
+									// searchImg.setImageUrl(
+									// "http://d2rmoau0tbh3pz.cloudfront.net/"
+									// + imgObj.get("original"),
+									// imageLoader);
 
 									// adding movie to movies array
 									movieList.add(venue);

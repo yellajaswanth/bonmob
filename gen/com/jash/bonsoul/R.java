@@ -74,17 +74,17 @@ public final class R {
     public static final class id {
         public static final int ReviewTxt1=0x7f0a001a;
         public static final int ReviewTxt2=0x7f0a001c;
-        public static final int action_filter=0x7f0a0043;
-        public static final int action_settings=0x7f0a0042;
+        public static final int action_filter=0x7f0a0045;
+        public static final int action_settings=0x7f0a0044;
         public static final int button1=0x7f0a0002;
         public static final int button2=0x7f0a0003;
         public static final int ccInfra=0x7f0a0022;
         public static final int ccinfra=0x7f0a0023;
         public static final int container=0x7f0a0005;
         public static final int cost=0x7f0a003b;
-        public static final int deleteItem=0x7f0a0041;
+        public static final int deleteItem=0x7f0a0043;
         public static final int drawer_layout=0x7f0a0004;
-        public static final int genre=0x7f0a003f;
+        public static final int genre=0x7f0a0041;
         public static final int imageView1=0x7f0a0026;
         public static final int imageView2=0x7f0a0029;
         public static final int imageView3=0x7f0a002c;
@@ -112,9 +112,10 @@ public final class R {
         public static final int ordersummheader=0x7f0a0000;
         public static final int parkingImg=0x7f0a0020;
         public static final int parkinginfra=0x7f0a0021;
-        public static final int rating=0x7f0a003e;
+        public static final int rating=0x7f0a0040;
         public static final int readallreviews=0x7f0a001d;
-        public static final int releaseYear=0x7f0a0040;
+        public static final int releaseYear=0x7f0a0042;
+        public static final int searchResultItem=0x7f0a003c;
         public static final int services_list=0x7f0a0008;
         public static final int textView3=0x7f0a002d;
         public static final int textView4=0x7f0a0031;
@@ -125,8 +126,8 @@ public final class R {
         public static final int thumb3=0x7f0a0013;
         public static final int thumb4=0x7f0a0014;
         public static final int thumb5=0x7f0a0015;
-        public static final int thumbnail=0x7f0a003d;
-        public static final int title=0x7f0a003c;
+        public static final int thumbnail=0x7f0a003f;
+        public static final int title=0x7f0a003e;
         public static final int userReview1=0x7f0a0019;
         public static final int userReview2=0x7f0a001b;
         public static final int venueGallery=0x7f0a0010;
@@ -135,6 +136,7 @@ public final class R {
         public static final int venueReviewCount=0x7f0a000f;
         public static final int venueReviews=0x7f0a0018;
         public static final int venueScrollview=0x7f0a0009;
+        public static final int venueSearchImg=0x7f0a003d;
         public static final int venueaddress=0x7f0a000d;
         public static final int venuename=0x7f0a000b;
         public static final int venueopen=0x7f0a000c;
