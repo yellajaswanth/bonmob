@@ -21,5 +21,23 @@
     <string name="nails">Nails</string>
     <string name="spa">Spa</string>
     <string name="fitness">Fitness</string>
+    <string name="lookbook">LOOK AND BOOK </string>
+    <string name="surpriseme">SURPRISE ME </string>
+    <string name="mybookings">MY BOOKINGS </string>
+
+    <!-- Nav Drawer Menu Items -->
+    <string-array name="nav_drawer_items">
+        <item>Home</item>
+        <item>Find People</item>
+        <item>Photos</item>
+        <item>Communities</item>
+        <item>Pages</item>
+        <item>What\'s Hot</item>
+    </string-array>
+
+    <string name="title_activity_look_book">LookBookActivity</string>
+    <string name="lookbook2">LOOK AND BOOK</string>
+    <string name="title_activity_location">LocationActivity</string>
+    <string name="title_activity_venue_details">VenueDetailsActivity</string>
 
 </resources>

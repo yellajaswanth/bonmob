@@ -1,15 +1,39 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"    
+    android:orientation="vertical"
     tools:context="com.jash.bonsoul.ServicesActivity" >
+    
+    <RelativeLayout
+        android:id="@+id/servicessearchrl"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="#A6A6A6" >
+
+        <EditText
+            android:id="@+id/searchservices_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Search by service"
+    		android:inputType="textVisiblePassword"
+    		android:layout_centerHorizontal="true"
+    		android:gravity="center"
+    		android:background="@drawable/rectshape2"
+    		 android:layout_marginTop="5dp"
+    		 android:ems="14"
+    		 android:drawableLeft="@drawable/ic_action_search"
+           />
+        
+    </RelativeLayout>
 
     <ListView
         android:id="@+id/services_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true" >
+        android:layout_alignParentTop="true"
+        >
     </ListView>
 
-</RelativeLayout>
+</LinearLayout>

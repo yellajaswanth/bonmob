@@ -77,13 +77,10 @@ public class SearchResultActivity extends Activity {
 					int position, long id) {
 				Venue venue = (Venue) parent.getItemAtPosition(position);
 				Intent i = new Intent(SearchResultActivity.this,
-						VenueActivity.class);
+						VenueDetailsActivity.class);
 				String vId = String.valueOf(venue.getVenueID());
 				BonsoulObj.getInstance().setVenueID(vId);
 				startActivity(i);
-				// Toast.makeText(SearchResultActivity.this, venue.getVenueID()
-				// + " " + venue.getVenueName() , Toast.LENGTH_LONG).show();
-
 			}
 
 		});
@@ -142,27 +139,15 @@ public class SearchResultActivity extends Activity {
 											.getString("venuename"));
 									venue.setRating(obj
 											.getString("venuerating"));
-									venue.setReviewCount(obj
-											.getString("reviewcount"));
+									venue.setVenueLocation("Jubilee Hills");
 
-									// String photos = obj.getString("photos");
-									// JSONArray photosArray = new JSONArray(
-									// photos);
-									// for (int j = 0; j < photos.length(); j++)
-									// {
-									// JSONObject imgObj = photosArray
-									// .getJSONArray(0);
-									// if (j == 0)
-									// Log.d(TAG,
-									// String.valueOf(photosArray
-									// .get(0)));
-									//
-									// }
+									String photos = obj.getString("photos");
+									JSONArray photosArray = new JSONArray(
+											photos);
+									JSONObject imgObj = photosArray
+											.getJSONObject(0);
 
-									// searchImg.setImageUrl(
-									// "http://d2rmoau0tbh3pz.cloudfront.net/"
-									// + imgObj.get("original"),
-									// imageLoader);
+									venue.setPhoto(imgObj.getString("original"));
 
 									// adding movie to movies array
 									movieList.add(venue);

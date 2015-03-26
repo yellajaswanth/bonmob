@@ -1,25 +1,23 @@
 package model;
 
-import java.util.ArrayList;
-
 public class Venue {
-	private String venueName, thumbnailUrl;
-	private String reviewCount;
+	private String venueName;
+	private String venueLocation;
 	private String rating;
 	private int venueId;
-	private ArrayList<String> genre;
+	private String contact;
 	private String photo;
 
 	public Venue() {
 	}
 
-	public Venue(String name, String reviewCount, String rating,
-			ArrayList<String> genre, int venueId, String photo) {
+	public Venue(String name, String venueLocation, String rating,
+			String contact, int venueId, String photo) {
 		this.venueName = name;
 		// this.thumbnailUrl = thumbnailUrl;
-		this.reviewCount = reviewCount;
+		this.venueLocation = venueLocation;
 		this.rating = rating;
-		this.genre = genre;
+		this.contact = contact;
 		this.venueId = venueId;
 		this.photo = photo;
 	}
@@ -40,20 +38,12 @@ public class Venue {
 		this.venueId = vId;
 	}
 
-	// public String getThumbnailUrl() {
-	// return thumbnailUrl;
-	// }
-	//
-	// public void setThumbnailUrl(String thumbnailUrl) {
-	// this.thumbnailUrl = thumbnailUrl;
-	// }
-
-	public String getReviewCount() {
-		return reviewCount;
+	public String getVenueLocation() {
+		return venueLocation;
 	}
 
-	public void setReviewCount(String rc) {
-		this.reviewCount = rc;
+	public void setVenueLocation(String vl) {
+		this.venueLocation = vl;
 	}
 
 	public String getRating() {
@@ -64,12 +54,12 @@ public class Venue {
 		this.rating = rating;
 	}
 
-	public ArrayList<String> getGenre() {
-		return genre;
+	public String getContact() {
+		return contact;
 	}
 
-	public void setGenre(ArrayList<String> genre) {
-		this.genre = genre;
+	public void setContact(String contact) {
+		this.contact = contact;
 	}
 
 	public String getPhoto() {

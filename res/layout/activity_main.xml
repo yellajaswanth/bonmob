@@ -4,7 +4,8 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.jash.bonsoul.MainActivity" >
+    tools:context="com.jash.bonsoul.MainActivity"
+     >
 
     <!--
          As the main content view, the view below consumes the entire
@@ -14,7 +15,8 @@
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+         />
 
     <!--
          android:layout_gravity="start" tells DrawerLayout to treat

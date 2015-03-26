@@ -1,10 +1,112 @@
-<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#13182e"
-    android:choiceMode="singleChoice"
-    android:divider="@android:color/transparent"
-    android:dividerHeight="0dp"
-    tools:context="com.jash.bonsoul.NavigationDrawerFragment" />
-
+    android:orientation="vertical"
+    android:gravity="center|top"
+    android:background="#b8b8b8"
+    >
+    
+    <TextView 
+      	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+	    android:text="PROFILE"
+	    android:textSize="25dp"
+	    android:layout_marginTop="20dp"
+        />
+    
+    <ImageView 
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/gym"
+        android:scaleType="fitXY"
+        android:layout_marginTop="10dp"
+        />
+    
+    <TextView 
+      	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+	    android:text="JASWANTH YELLA"
+	    android:textSize="20dp"
+	    android:textStyle="bold"
+	    android:layout_marginTop="10dp"
+        />
+    
+    <TextView 
+      	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+	    android:text="MY REVIEWS"
+	    android:textSize="20dp"
+	    android:layout_marginTop="20dp"
+        />
+    
+    <TextView 
+      	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+	    android:text="MY POINTS"
+	    android:textSize="20dp"
+	    android:layout_marginTop="10dp"
+        />
+    
+    <TextView 
+      	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+	    android:text="MY FAVORITES"
+	    android:textSize="20dp"
+	    android:layout_marginTop="10dp"
+        />
+    
+    <TextView 
+      	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+	    android:text="CANCELLATION"
+	    android:textSize="20dp"
+	    android:layout_marginTop="10dp"
+        />
+    
+    <TextView 
+      	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+	    android:text="EDIT PROFILE"
+	    android:textSize="20dp"
+	    android:layout_marginTop="10dp"
+        />
+    
+    <TextView 
+      	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+	    android:text="LOG OUT"
+	    android:textSize="18dp"
+	    android:layout_weight="1"
+	    android:layout_marginTop="10dp"
+        />
+    
+    <TextView 
+      	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+	    android:text="Terms and Conditions"
+	    android:textSize="10dp"
+	    android:textStyle="bold"
+        />
+    
+    <TextView 
+      	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+	    android:text="Privacy"
+	    android:textSize="10dp"
+	    android:textStyle="bold"	    
+        />
+    
+    <TextView 
+      	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+	    android:text="2014 Rvan Software Solutions Pvt Ltd"
+	    android:textSize="10dp"
+	    android:textStyle="bold"	    
+        />
+    
+    
+    
+    
+</LinearLayout>

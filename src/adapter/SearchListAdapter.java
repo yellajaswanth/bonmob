@@ -1,10 +1,8 @@
 package adapter;
 
-
 import java.util.List;
 
 import model.Venue;
-
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -21,22 +19,22 @@ import com.jash.bonsoul.R;
 public class SearchListAdapter extends BaseAdapter {
 	private Activity activity;
 	private LayoutInflater inflater;
-	private List<Venue> movieItems;
+	private List<Venue> venueItems;
 	ImageLoader imageLoader = AppController.getInstance().getImageLoader();
 
-	public SearchListAdapter(Activity activity, List<Venue> movieItems) {
+	public SearchListAdapter(Activity activity, List<Venue> venueItems) {
 		this.activity = activity;
-		this.movieItems = movieItems;
+		this.venueItems = venueItems;
 	}
 
 	@Override
 	public int getCount() {
-		return movieItems.size();
+		return venueItems.size();
 	}
 
 	@Override
 	public Object getItem(int location) {
-		return movieItems.get(location);
+		return venueItems.get(location);
 	}
 
 	@Override
@@ -56,37 +54,28 @@ public class SearchListAdapter extends BaseAdapter {
 		if (imageLoader == null)
 			imageLoader = AppController.getInstance().getImageLoader();
 		NetworkImageView thumbNail = (NetworkImageView) convertView
-				.findViewById(R.id.thumbnail);
-		TextView title = (TextView) convertView.findViewById(R.id.title);
+				.findViewById(R.id.venueSearchImg);
+		TextView venueName = (TextView) convertView
+				.findViewById(R.id.venueName);
+		TextView venueLocation = (TextView) convertView
+				.findViewById(R.id.venueLocation);
 		TextView rating = (TextView) convertView.findViewById(R.id.rating);
-		TextView genre = (TextView) convertView.findViewById(R.id.genre);
-		TextView year = (TextView) convertView.findViewById(R.id.releaseYear);
 
 		// getting movie data for the row
-		Venue m = movieItems.get(position);
+		Venue m = venueItems.get(position);
 
 		// thumbnail image
-//		thumbNail.setImageUrl(m.getThumbnailUrl(), imageLoader);
-		
-		// title
-		title.setText(m.getVenueName());
-		
-		// rating
-		rating.setText("Rating: " + String.valueOf(m.getRating()));
-		
-//		// genre
-//		String genreStr = "";
-//		for (String str : m.getGenre()) {
-//			genreStr += str + ", ";
-//		}
-//		genreStr = genreStr.length() > 0 ? genreStr.substring(0,
-//				genreStr.length() - 2) : genreStr;
-//		genre.setText(genreStr);
-		
-		// release year
-		year.setText(String.valueOf(m.getReviewCount()) + " reviews");
+		thumbNail.setImageUrl(m.getPhoto(), imageLoader);
+
+		// VenueName
+		venueName.setText(m.getVenueName());
+
+		// VenueLocation
+		venueLocation.setText(m.getVenueLocation());
+
+		// VenueRating
+		rating.setText(m.getRating());
 
 		return convertView;
 	}
-
 }

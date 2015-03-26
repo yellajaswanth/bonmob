@@ -13,4 +13,9 @@
 	<color name="turquoise">#6BC1A8</color>
 	<color name="pinkred">#eb0e45</color>
 	<color name="navyblue">#13182e</color>
+	
+	<color name="list_item_title">#fff</color>
+    <color name="list_background">#303030</color>
+    <color name="list_background_pressed">#992416</color>
+    <color name="drawer_list_divider">#272727</color>
 </resources>
